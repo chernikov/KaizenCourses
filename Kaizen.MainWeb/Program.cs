@@ -15,6 +15,7 @@ builder.Services.AddDbContext<KaizenDbContext>(opt =>
 
 var app = builder.Build();
 
+Database.Migrate(app);
 // Configure the HTTP request pipeline.
 
 app.UseAuthorization();
