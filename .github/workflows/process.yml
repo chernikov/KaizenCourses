@@ -1,0 +1,26 @@
+name: Publish on digitalocean
+on:
+  push: 
+    branches: [master]
+  pull_request: 
+    branches: [master]
+
+jobs:
+  build_main_api :
+    name: Build Main API [.net]
+      run-on : ubuntu-latest
+      steps :
+        - name: Checkout 
+          uses: actions/checkout@v2
+        - name: Log in Docker HUB
+          uses: docker/login_action@v1
+            with : 
+              username : chernikov
+              password : ${{ secrets.DOCKER_HUB_PASSWORD }}
+        - name: build docker image
+          uses: docker/build-push-action@v2
+            with : 
+              context: .
+              file: ./Dockerfile
+              push: true
+              tags: chernikov/courses_kaizen_main_api:latest
