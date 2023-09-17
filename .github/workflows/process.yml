@@ -53,10 +53,10 @@ jobs:
           username: root
           password: ${{ secrets.DIGITAL_OCEAN_DROPLET_PASSWORD }}
           script: |
-            cd /home
-            docker-compose down
-            docker-compose pull
-            docker-compose up --detach
+           cd /home
+           docker-compose down
+           docker-compose pull
+           docker-compose up --detach
 
 
 
