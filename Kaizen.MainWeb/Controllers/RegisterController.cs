@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Kaizen.MainWeb.Controllers;
 
+[Route("api/register")]
 public class RegisterController  : Controller
 {
     private readonly KaizenDbContext context;
