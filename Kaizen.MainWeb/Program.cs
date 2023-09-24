@@ -14,9 +14,6 @@ var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<KaizenDbContext>(opt => 
     opt.UseSqlServer(connectionString));
 
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
-
 var app = builder.Build();
 
 Database.Migrate(app);

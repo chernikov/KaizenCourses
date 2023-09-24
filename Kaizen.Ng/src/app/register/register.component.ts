@@ -24,7 +24,7 @@ export class RegisterComponent {
     user.email = this.email;
     user.password = this.password;
     this.userService.register(user).subscribe(data => {
-      this._snackBar.open("User registered", "Close");
+      this._snackBar.open("User is registered", "Close");
     }, errorResult => {
       this.errorMessage = errorResult.error;
     });
