@@ -1,5 +1,7 @@
-﻿using Kaizen.Core;
+﻿using AutoMapper;
+using Kaizen.Core;
 using Kaizen.Core.Models;
+using Kaizen.MainWeb.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kaizen.MainWeb.Controllers;
@@ -8,17 +10,20 @@ namespace Kaizen.MainWeb.Controllers;
 public class RegisterController  : Controller
 {
     private readonly KaizenDbContext context;
+    private readonly IMapper mapper;
 
-    public RegisterController(KaizenDbContext context) {
+    public RegisterController(KaizenDbContext context, IMapper mapper) {
         this.context = context;
+        this.mapper = mapper;
     }
 
 
     [HttpPost]
-    public IActionResult Post([FromBody] User user)
+    public IActionResult Post([FromBody] UserDto user)
     {
-        context.Users.Add(user);
+        var entity = mapper.Map<User>(user);
+        context.Users.Add(entity);
         context.SaveChanges();
-        return Created("", user);
+        return Created("", entity);
     }
 }
