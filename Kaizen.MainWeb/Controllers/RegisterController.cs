@@ -21,6 +21,11 @@ public class RegisterController  : Controller
     [HttpPost]
     public IActionResult Post([FromBody] UserDto user)
     {
+        var isRegistered = context.Users.Any(p => p.Email == user.Email);
+        if (isRegistered)
+        {
+            return BadRequest(error: "User is already registered");
+        }
         var entity = mapper.Map<User>(user);
         context.Users.Add(entity);
         context.SaveChanges();
