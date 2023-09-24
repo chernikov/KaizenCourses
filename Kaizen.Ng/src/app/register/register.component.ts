@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
+  public email : string = '';
+
+  onRegister() {
+    console.log(this.email);
+  }
 }
