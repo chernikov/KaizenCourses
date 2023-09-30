@@ -1,7 +1,7 @@
 name: Build and Deploy on digital ocean
 on:
   push: 
-    branches: [master]
+    branches: [main]
 
 jobs:
   build_main_api: 

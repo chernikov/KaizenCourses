@@ -1,17 +1,16 @@
 ﻿using Kaizen.Core.Models;
 using Kaizen.MainWeb.Dtos;
 
-namespace Kaizen.MainWeb.EntityExtensions
+namespace Kaizen.MainWeb.EntityExtensions;
+
+public static class UserExtension
 {
-    public static class UserExtension
+    public static UserDto ToDto(this User source)
     {
-        public static UserDto ToDto(this User source)
+        return new UserDto()
         {
-            return new UserDto()
-            {
-                Email = source.Email,
-                Password = source.Password
-            };
-        }
+            Email = source.Email,
+            Password = source.Password
+        };
     }
 }
