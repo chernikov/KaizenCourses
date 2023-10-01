@@ -3,6 +3,7 @@ using Kaizen.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kaizen.Core.Migrations
 {
     [DbContext(typeof(KaizenDbContext))]
-    partial class KaizenDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231001051732_AddRoles")]
+    partial class AddRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,28 +40,6 @@ namespace Kaizen.Core.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Admin"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Teacher"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Schooler"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Parent"
-                        });
                 });
 
             modelBuilder.Entity("Kaizen.Core.Models.User", b =>
@@ -80,14 +61,6 @@ namespace Kaizen.Core.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "admin",
-                            Password = "admin"
-                        });
                 });
 
             modelBuilder.Entity("Kaizen.Core.Models.UserRole", b =>
@@ -111,14 +84,6 @@ namespace Kaizen.Core.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            RoleId = 1,
-                            UserId = 1
-                        });
                 });
 
             modelBuilder.Entity("Kaizen.Core.Models.UserRole", b =>
