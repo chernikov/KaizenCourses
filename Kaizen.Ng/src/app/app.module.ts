@@ -3,15 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 import { RouterModule } from '@angular/router';
 
@@ -20,7 +16,10 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import { AuthTokenAddInceptor } from 'src/services/inceptors/auth-token.incetor';
+import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
+import { LocalService } from 'src/services/local.service';
+import { jwtOptionFactory } from './jwt.config';
+import { MaterialModule } from 'src/_material/material.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,18 +35,15 @@ import { AuthTokenAddInceptor } from 'src/services/inceptors/auth-token.incetor'
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSnackBarModule,
+    MaterialModule,
+    JwtModule.forRoot({
+      jwtOptionsProvider: {
+        provide: JWT_OPTIONS,
+        useFactory: jwtOptionFactory,
+        deps: [LocalService]
+      }
+    })
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthTokenAddInceptor,
-    multi: true
-  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
