@@ -1,10 +1,12 @@
 ﻿using Kaizen.Core;
 using Kaizen.MainWeb.Dtos;
 using Kaizen.MainWeb.EntityExtensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kaizen.MainWeb.Controllers;
 
+[Authorize(Roles = "Admin")]
 [Route("api/class-room")]
 public class ClassRoomController : Controller
 {
