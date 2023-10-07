@@ -17,7 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
-import { LocalService } from 'src/services/local.service';
+import { LocalService } from '@services/local.service';
 import { jwtOptionFactory } from './jwt.config';
 import { MaterialModule } from 'src/_material/material.module';
 @NgModule({

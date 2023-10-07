@@ -1,1 +1,25 @@
-<p>class-room works!</p>
+<div class="table-container">
+  <button mat-raised-button color="primary">Add</button>
+  <table mat-table [dataSource]="list$" class="table-margin">
+    <mat-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </mat-container>
+
+    <mat-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </mat-container>
+
+    <mat-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <a mat-button color="primary">Edit</a>
+        <a mat-button color="primary">Remove</a>
+      </td>
+    </mat-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns"></tr>
+  </table>
+</div>

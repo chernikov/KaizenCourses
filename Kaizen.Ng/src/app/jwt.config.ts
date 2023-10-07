@@ -1,4 +1,4 @@
-import { LocalService } from "src/services/local.service";
+import { LocalService } from "@services/local.service";
 
 export function jwtOptionFactory(localService : LocalService) {
     return {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ProtectedService } from 'src/services/protected.service';
+import { ProtectedService } from '@services/protected.service';
 
 @Component({
   selector: 'app-home',

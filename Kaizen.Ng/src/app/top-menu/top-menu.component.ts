@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { LocalService } from 'src/services/local.service';
+import { LocalService } from '@services/local.service';
 
 @Component({
   selector: 'app-top-menu',
