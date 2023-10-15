@@ -1,6 +1,11 @@
 <mat-toolbar>
-    <button mat-raised-button color="primary" [routerLink]="'/register'" class="toolbar-btn">Register</button> 
-    <button mat-raised-button color="primary" [routerLink]="'/login'" class="toolbar-btn">Login</button>
+    <ng-template *ngIf="!isAdmin">
+        <button mat-raised-button color="primary" [routerLink]="'/register'" class="toolbar-btn">Register</button> 
+        <button mat-raised-button color="primary" [routerLink]="'/login'" class="toolbar-btn">Login</button>
+    </ng-template>
+    <button *ngIf="isAdmin" mat-raised-button color="primary" [routerLink]="'/sign-out'" class="toolbar-btn">Sign Out</button>
+    <span class="span-expander"></span>
+    <button *ngIf="isAdmin" mat-raised-button color="primary" [routerLink]="'/admin'" class="toolbar-btn">Open Admin</button>
 </mat-toolbar>
 
 

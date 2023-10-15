@@ -2,6 +2,7 @@
 using Kaizen.Core.Models;
 using Kaizen.MainWeb.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -44,11 +45,23 @@ public class LoginController : Controller
         var jwtSecret = configuration["JwtSecret"]!;
         var key = Encoding.ASCII.GetBytes(jwtSecret);
 
+        var userRoles = context.UserRoles
+                    .Include(p => p.Role)
+                    .Where(p => p.UserId == entity.Id)
+                    .ToList();
+
+        var roles = userRoles.Select(p => p.Role).ToList();
+
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Sid, entity.Id.ToString()),
             new Claim(ClaimTypes.Email, entity.Email)
         };
+
+        foreach(var role in roles)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, role.Name));
+        }
 
         var identity = new ClaimsIdentity(claims);
 
