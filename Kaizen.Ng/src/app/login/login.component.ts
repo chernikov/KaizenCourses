@@ -26,9 +26,8 @@ export class LoginComponent {
 
     this.loginService.login(user).subscribe(
       (data) => {
-        this.localService.put("auth-token", data);
-        this.router.navigateByUrl("/");
-
+        this.localService.put(LocalService.AuthTokenName, data);
+        window.location.href = "/";
       },
       (errorResponse) => {
         this.errorMessage = errorResponse.error;

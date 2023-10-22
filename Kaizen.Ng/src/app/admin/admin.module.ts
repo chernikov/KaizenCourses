@@ -7,6 +7,9 @@ import { ClassRoomComponent } from './class-room/class-room.component';
 import { GradeComponent } from './grade/grade.component';
 import { AdminRoutingModule } from './admin.route';
 import { MaterialModule } from '../_material/material.module';
+import { ClassRoomFormComponent } from './class-room/class-room-form/class-room-form.component';
+import { FormsModule } from '@angular/forms';
+import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
 
 
 
@@ -16,10 +19,13 @@ import { MaterialModule } from '../_material/material.module';
     SideMenuComponent,
     HomeComponent,
     ClassRoomComponent,
-    GradeComponent
+    GradeComponent,
+    ClassRoomFormComponent,
+    ConfirmDeleteDialogComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AdminRoutingModule,
     MaterialModule
 

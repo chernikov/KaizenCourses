@@ -17,11 +17,15 @@ export class TopMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let token = this.localService.get("auth-token");
+    let token = this.localService.get(LocalService.AuthTokenName);
     if (token) {
       let data = this.jwtHelperService.decodeToken(token);
       this.isAdmin = data.role == "Admin";
     }
   }
 
+  onSignOut() {
+    this.localService.remove(LocalService.AuthTokenName);
+    window.location.reload();
+  }
 }
