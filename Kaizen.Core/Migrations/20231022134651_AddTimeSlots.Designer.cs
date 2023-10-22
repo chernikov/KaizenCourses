@@ -4,6 +4,7 @@ using Kaizen.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kaizen.Core.Migrations
 {
     [DbContext(typeof(KaizenDbContext))]
-    partial class KaizenDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231022134651_AddTimeSlots")]
+    partial class AddTimeSlots
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,7 +194,7 @@ namespace Kaizen.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TimeSlots");
+                    b.ToTable("TimeSlot");
 
                     b.HasData(
                         new
@@ -204,237 +207,272 @@ namespace Kaizen.Core.Migrations
                         new
                         {
                             Id = 2,
-                            BeginTime = new TimeSpan(0, 9, 55, 0, 0),
+                            BeginTime = new TimeSpan(0, 9, 0, 0, 0),
                             DayOfWeek = 1,
-                            EndTime = new TimeSpan(0, 10, 40, 0, 0)
+                            EndTime = new TimeSpan(0, 9, 45, 0, 0)
                         },
                         new
                         {
                             Id = 3,
-                            BeginTime = new TimeSpan(0, 10, 50, 0, 0),
+                            BeginTime = new TimeSpan(0, 9, 55, 0, 0),
                             DayOfWeek = 1,
-                            EndTime = new TimeSpan(0, 11, 35, 0, 0)
+                            EndTime = new TimeSpan(0, 10, 40, 0, 0)
                         },
                         new
                         {
                             Id = 4,
-                            BeginTime = new TimeSpan(0, 11, 45, 0, 0),
+                            BeginTime = new TimeSpan(0, 10, 50, 0, 0),
                             DayOfWeek = 1,
-                            EndTime = new TimeSpan(0, 12, 30, 0, 0)
+                            EndTime = new TimeSpan(0, 11, 35, 0, 0)
                         },
                         new
                         {
                             Id = 5,
-                            BeginTime = new TimeSpan(0, 13, 0, 0, 0),
+                            BeginTime = new TimeSpan(0, 11, 45, 0, 0),
                             DayOfWeek = 1,
-                            EndTime = new TimeSpan(0, 13, 45, 0, 0)
+                            EndTime = new TimeSpan(0, 12, 30, 0, 0)
                         },
                         new
                         {
                             Id = 6,
-                            BeginTime = new TimeSpan(0, 13, 50, 0, 0),
+                            BeginTime = new TimeSpan(0, 13, 0, 0, 0),
                             DayOfWeek = 1,
-                            EndTime = new TimeSpan(0, 14, 35, 0, 0)
+                            EndTime = new TimeSpan(0, 13, 45, 0, 0)
                         },
                         new
                         {
                             Id = 7,
+                            BeginTime = new TimeSpan(0, 13, 50, 0, 0),
+                            DayOfWeek = 1,
+                            EndTime = new TimeSpan(0, 14, 35, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 8,
                             BeginTime = new TimeSpan(0, 14, 35, 0, 0),
                             DayOfWeek = 1,
                             EndTime = new TimeSpan(0, 15, 20, 0, 0)
                         },
                         new
                         {
-                            Id = 8,
+                            Id = 9,
                             BeginTime = new TimeSpan(0, 9, 0, 0, 0),
                             DayOfWeek = 2,
                             EndTime = new TimeSpan(0, 9, 45, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 9,
-                            BeginTime = new TimeSpan(0, 9, 55, 0, 0),
-                            DayOfWeek = 2,
-                            EndTime = new TimeSpan(0, 10, 40, 0, 0)
                         },
                         new
                         {
                             Id = 10,
-                            BeginTime = new TimeSpan(0, 10, 50, 0, 0),
+                            BeginTime = new TimeSpan(0, 9, 0, 0, 0),
                             DayOfWeek = 2,
-                            EndTime = new TimeSpan(0, 11, 35, 0, 0)
+                            EndTime = new TimeSpan(0, 9, 45, 0, 0)
                         },
                         new
                         {
                             Id = 11,
-                            BeginTime = new TimeSpan(0, 11, 45, 0, 0),
+                            BeginTime = new TimeSpan(0, 9, 55, 0, 0),
                             DayOfWeek = 2,
-                            EndTime = new TimeSpan(0, 12, 30, 0, 0)
+                            EndTime = new TimeSpan(0, 10, 40, 0, 0)
                         },
                         new
                         {
                             Id = 12,
-                            BeginTime = new TimeSpan(0, 13, 0, 0, 0),
+                            BeginTime = new TimeSpan(0, 10, 50, 0, 0),
                             DayOfWeek = 2,
-                            EndTime = new TimeSpan(0, 13, 45, 0, 0)
+                            EndTime = new TimeSpan(0, 11, 35, 0, 0)
                         },
                         new
                         {
                             Id = 13,
-                            BeginTime = new TimeSpan(0, 13, 50, 0, 0),
+                            BeginTime = new TimeSpan(0, 11, 45, 0, 0),
                             DayOfWeek = 2,
-                            EndTime = new TimeSpan(0, 14, 35, 0, 0)
+                            EndTime = new TimeSpan(0, 12, 30, 0, 0)
                         },
                         new
                         {
                             Id = 14,
+                            BeginTime = new TimeSpan(0, 13, 0, 0, 0),
+                            DayOfWeek = 2,
+                            EndTime = new TimeSpan(0, 13, 45, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BeginTime = new TimeSpan(0, 13, 50, 0, 0),
+                            DayOfWeek = 2,
+                            EndTime = new TimeSpan(0, 14, 35, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 16,
                             BeginTime = new TimeSpan(0, 14, 35, 0, 0),
                             DayOfWeek = 2,
                             EndTime = new TimeSpan(0, 15, 20, 0, 0)
                         },
                         new
                         {
-                            Id = 15,
+                            Id = 17,
                             BeginTime = new TimeSpan(0, 9, 0, 0, 0),
                             DayOfWeek = 3,
                             EndTime = new TimeSpan(0, 9, 45, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 16,
-                            BeginTime = new TimeSpan(0, 9, 55, 0, 0),
-                            DayOfWeek = 3,
-                            EndTime = new TimeSpan(0, 10, 40, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 17,
-                            BeginTime = new TimeSpan(0, 10, 50, 0, 0),
-                            DayOfWeek = 3,
-                            EndTime = new TimeSpan(0, 11, 35, 0, 0)
                         },
                         new
                         {
                             Id = 18,
-                            BeginTime = new TimeSpan(0, 11, 45, 0, 0),
+                            BeginTime = new TimeSpan(0, 9, 0, 0, 0),
                             DayOfWeek = 3,
-                            EndTime = new TimeSpan(0, 12, 30, 0, 0)
+                            EndTime = new TimeSpan(0, 9, 45, 0, 0)
                         },
                         new
                         {
                             Id = 19,
-                            BeginTime = new TimeSpan(0, 13, 0, 0, 0),
+                            BeginTime = new TimeSpan(0, 9, 55, 0, 0),
                             DayOfWeek = 3,
-                            EndTime = new TimeSpan(0, 13, 45, 0, 0)
+                            EndTime = new TimeSpan(0, 10, 40, 0, 0)
                         },
                         new
                         {
                             Id = 20,
-                            BeginTime = new TimeSpan(0, 13, 50, 0, 0),
+                            BeginTime = new TimeSpan(0, 10, 50, 0, 0),
                             DayOfWeek = 3,
-                            EndTime = new TimeSpan(0, 14, 35, 0, 0)
+                            EndTime = new TimeSpan(0, 11, 35, 0, 0)
                         },
                         new
                         {
                             Id = 21,
+                            BeginTime = new TimeSpan(0, 11, 45, 0, 0),
+                            DayOfWeek = 3,
+                            EndTime = new TimeSpan(0, 12, 30, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 22,
+                            BeginTime = new TimeSpan(0, 13, 0, 0, 0),
+                            DayOfWeek = 3,
+                            EndTime = new TimeSpan(0, 13, 45, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 23,
+                            BeginTime = new TimeSpan(0, 13, 50, 0, 0),
+                            DayOfWeek = 3,
+                            EndTime = new TimeSpan(0, 14, 35, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 24,
                             BeginTime = new TimeSpan(0, 14, 35, 0, 0),
                             DayOfWeek = 3,
                             EndTime = new TimeSpan(0, 15, 20, 0, 0)
                         },
                         new
                         {
-                            Id = 22,
+                            Id = 25,
                             BeginTime = new TimeSpan(0, 9, 0, 0, 0),
                             DayOfWeek = 4,
                             EndTime = new TimeSpan(0, 9, 45, 0, 0)
                         },
                         new
                         {
-                            Id = 23,
+                            Id = 26,
+                            BeginTime = new TimeSpan(0, 9, 0, 0, 0),
+                            DayOfWeek = 4,
+                            EndTime = new TimeSpan(0, 9, 45, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 27,
                             BeginTime = new TimeSpan(0, 9, 55, 0, 0),
                             DayOfWeek = 4,
                             EndTime = new TimeSpan(0, 10, 40, 0, 0)
                         },
                         new
                         {
-                            Id = 24,
+                            Id = 28,
                             BeginTime = new TimeSpan(0, 10, 50, 0, 0),
                             DayOfWeek = 4,
                             EndTime = new TimeSpan(0, 11, 35, 0, 0)
                         },
                         new
                         {
-                            Id = 25,
+                            Id = 29,
                             BeginTime = new TimeSpan(0, 11, 45, 0, 0),
                             DayOfWeek = 4,
                             EndTime = new TimeSpan(0, 12, 30, 0, 0)
                         },
                         new
                         {
-                            Id = 26,
+                            Id = 30,
                             BeginTime = new TimeSpan(0, 13, 0, 0, 0),
                             DayOfWeek = 4,
                             EndTime = new TimeSpan(0, 13, 45, 0, 0)
                         },
                         new
                         {
-                            Id = 27,
+                            Id = 31,
                             BeginTime = new TimeSpan(0, 13, 50, 0, 0),
                             DayOfWeek = 4,
                             EndTime = new TimeSpan(0, 14, 35, 0, 0)
                         },
                         new
                         {
-                            Id = 28,
+                            Id = 32,
                             BeginTime = new TimeSpan(0, 14, 35, 0, 0),
                             DayOfWeek = 4,
                             EndTime = new TimeSpan(0, 15, 20, 0, 0)
                         },
                         new
                         {
-                            Id = 29,
+                            Id = 33,
                             BeginTime = new TimeSpan(0, 9, 0, 0, 0),
                             DayOfWeek = 5,
                             EndTime = new TimeSpan(0, 9, 45, 0, 0)
                         },
                         new
                         {
-                            Id = 30,
+                            Id = 34,
+                            BeginTime = new TimeSpan(0, 9, 0, 0, 0),
+                            DayOfWeek = 5,
+                            EndTime = new TimeSpan(0, 9, 45, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 35,
                             BeginTime = new TimeSpan(0, 9, 55, 0, 0),
                             DayOfWeek = 5,
                             EndTime = new TimeSpan(0, 10, 40, 0, 0)
                         },
                         new
                         {
-                            Id = 31,
+                            Id = 36,
                             BeginTime = new TimeSpan(0, 10, 50, 0, 0),
                             DayOfWeek = 5,
                             EndTime = new TimeSpan(0, 11, 35, 0, 0)
                         },
                         new
                         {
-                            Id = 32,
+                            Id = 37,
                             BeginTime = new TimeSpan(0, 11, 45, 0, 0),
                             DayOfWeek = 5,
                             EndTime = new TimeSpan(0, 12, 30, 0, 0)
                         },
                         new
                         {
-                            Id = 33,
+                            Id = 38,
                             BeginTime = new TimeSpan(0, 13, 0, 0, 0),
                             DayOfWeek = 5,
                             EndTime = new TimeSpan(0, 13, 45, 0, 0)
                         },
                         new
                         {
-                            Id = 34,
+                            Id = 39,
                             BeginTime = new TimeSpan(0, 13, 50, 0, 0),
                             DayOfWeek = 5,
                             EndTime = new TimeSpan(0, 14, 35, 0, 0)
                         },
                         new
                         {
-                            Id = 35,
+                            Id = 40,
                             BeginTime = new TimeSpan(0, 14, 35, 0, 0),
                             DayOfWeek = 5,
                             EndTime = new TimeSpan(0, 15, 20, 0, 0)
