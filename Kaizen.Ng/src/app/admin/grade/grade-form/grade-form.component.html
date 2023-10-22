@@ -1,6 +1,6 @@
 <mat-card class="card">
   <mat-card-header>
-    <mat-card-title> {{ id ? "Edit" : "Add" }} Class Room</mat-card-title>
+    <mat-card-title> {{ id ? "Edit" : "Add" }} Grade </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -15,10 +15,6 @@
           </div>
         </mat-error>
       </mat-form-field>
-
-      <mat-error *ngIf="errorMessage">
-        {{ errorMessage }}
-      </mat-error>
     </form>
   </mat-card-content>
   <mat-card-footer class="flex">
@@ -31,7 +27,7 @@
         [disabled]="!form.valid"
         >Submit</a
       >
-      <a mat-raised-button [routerLink]="'/admin/class-room'">Cancel</a>
+      <a mat-raised-button [routerLink]="'/admin/grade'">Cancel</a>
     </div>
   </mat-card-footer>
 </mat-card>

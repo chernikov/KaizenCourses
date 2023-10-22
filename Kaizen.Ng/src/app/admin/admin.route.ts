@@ -4,13 +4,21 @@ import { ClassRoomComponent } from "./class-room/class-room.component";
 import { GradeComponent } from "./grade/grade.component";
 import { NgModule } from "@angular/core";
 import { ClassRoomFormComponent } from "./class-room/class-room-form/class-room-form.component";
+import { GradeFormComponent } from "./grade/grade-form/grade-form.component";
+import { SubjectFormComponent } from "./subject/subject-form/subject-form.component";
+import { SubjectComponent } from "./subject/subject.component";
 
 const routes: Routes = [
-    {path: "class-room", component: ClassRoomComponent},
-    {path: "class-room/add", component: ClassRoomFormComponent},
-    {path: "class-room/edit/:id", component: ClassRoomFormComponent},
-    {path: "grade", component: GradeComponent},
-    {path: "", component: HomeComponent},
+    { path: 'class-room/add', component: ClassRoomFormComponent },
+  { path: 'class-room/edit/:id', component: ClassRoomFormComponent },
+  { path: 'class-room', component: ClassRoomComponent },
+  { path: 'grade/add', component: GradeFormComponent },
+  { path: 'grade/edit/:id', component: GradeFormComponent },
+  { path: 'grade', component: GradeComponent },
+  { path: 'subject/add', component: SubjectFormComponent },
+  { path: 'subject/edit/:id', component: SubjectFormComponent },
+  { path: 'subject', component: SubjectComponent },
+  { path: '', component: HomeComponent },
   ];
   
   @NgModule({

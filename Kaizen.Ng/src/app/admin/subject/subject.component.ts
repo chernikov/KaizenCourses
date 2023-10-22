@@ -1,24 +1,24 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Grade } from '@models/grade';
-import { GradeService } from '@services/grade.service';
+import { Subject } from '@models/subject';
+import { SubjectService } from '@services/subject.service';
 import { Observable } from 'rxjs';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 
 @Component({
-  selector: 'app-grade',
-  templateUrl: './grade.component.html',
-  styleUrls: ['./grade.component.scss']
+  selector: 'app-subject',
+  templateUrl: './subject.component.html',
+  styleUrls: ['./subject.component.scss']
 })
-export class GradeComponent {
+export class SubjectComponent {
 
-  list$ : Observable<Grade[]>;
+  list$ : Observable<Subject[]>;
 
   displayedColumns : string[] = ['id', 'name', 'actions'];
 
-  constructor(private gradeService : GradeService,
+  constructor(private subjectService : SubjectService,
     private dialog : MatDialog) {
-    this.list$ = this.gradeService.list();
+    this.list$ = this.subjectService.list();
   }
 
   onDelete(id : number) {
@@ -26,14 +26,14 @@ export class GradeComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.removeGrade(id);
+        this.removeSubject(id);
       }
     });
   }
 
-  removeGrade(id : number) {
-    this.gradeService.delete(id).subscribe(() => {
-      this.list$ = this.gradeService.list();
+  removeSubject(id : number) {
+    this.subjectService.delete(id).subscribe(() => {
+      this.list$ = this.subjectService.list();
     });
   }
 }
