@@ -8,7 +8,7 @@ import { GradeComponent } from './grade/grade.component';
 import { AdminRoutingModule } from './admin.route';
 import { MaterialModule } from '../_material/material.module';
 import { ClassRoomFormComponent } from './class-room/class-room-form/class-room-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
 
 
@@ -24,6 +24,7 @@ import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-de
     ConfirmDeleteDialogComponent
   ],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     FormsModule,
     AdminRoutingModule,

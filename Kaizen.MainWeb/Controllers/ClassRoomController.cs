@@ -10,12 +10,6 @@ public class ClassRoomController: Controller
 {
     private readonly KaizenDbContext context;
 
-    // 1 - get all list
-    // 2 - get one details
-    // 3 - create
-    // 4 - update
-    // 5 - delete
-
     public ClassRoomController(KaizenDbContext context)
     {
         this.context = context;
@@ -48,6 +42,12 @@ public class ClassRoomController: Controller
     [HttpPost]
     public IActionResult Create([FromBody] ClassRoomDto data)
     {
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest($"{nameof(ClassRoomDto)} isn't valid");
+        }
+
         var entity = data.ToEntity();
 
         context.ClassRooms.Add(entity);
@@ -62,6 +62,11 @@ public class ClassRoomController: Controller
     [HttpPut]
     public IActionResult Update([FromBody] ClassRoomDto data)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest($"{nameof(ClassRoomDto)} isn't valid");
+        }
+
         var entity = context.ClassRooms.SingleOrDefault(p => p.Id == data.Id);
 
         if (entity == null)

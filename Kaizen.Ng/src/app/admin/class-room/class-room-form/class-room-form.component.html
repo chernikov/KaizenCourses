@@ -4,24 +4,44 @@
   </mat-card-header>
 
   <mat-card-content>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <input
           matInput
           placeholder="Enter name"
           type="text"
-          [(ngModel)]="name"
           name="name"
+          formControlName="name"
         />
       </mat-form-field>
+
+      <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+
+
+      <mat-error *ngIf="!form.valid && form.touched">
+        <div *ngIf="form.controls.name.errors?.['required']">
+          Name is required.
+        </div>
+        <div *ngIf="form.controls.name.errors?.['maxlength']">
+          Name must be not more than 20 characters long.
+        </div>
+      </mat-error>
     </form>
   </mat-card-content>
 
-  <mat-card-footer> 
+  <mat-card-footer>
     <div class="btn-actions">
-    <a mat-raised-button color="primary" (click)="onSubmit()">Submit</a>
+      <a
+        mat-raised-button
+        color="primary"
+        (click)="onSubmit()"
+        [disabled]="!form.valid"
+        >Submit</a
+      >
 
-    <a mat-raised-button color="basic" [routerLink]="'/admin/class-room'">Back</a>
-</div>
+      <a mat-raised-button color="basic" [routerLink]="'/admin/class-room'"
+        >Back</a
+      >
+    </div>
   </mat-card-footer>
 </mat-card>
