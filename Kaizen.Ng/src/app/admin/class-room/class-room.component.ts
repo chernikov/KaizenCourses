@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassRoom } from '@models/class-room';
 import { ClassRoomService } from '@services/class-room.service';
@@ -14,29 +14,26 @@ export class ClassRoomComponent {
 
   list$ : Observable<ClassRoom[]>;
 
-  displayedColumns : string[] = ["id", "name", "actions"];
+  displayedColumns : string[] = ['id', 'name', 'actions'];
 
-  constructor(private classRoomService : ClassRoomService, 
+  constructor(private classRoomService : ClassRoomService,
     private dialog : MatDialog) {
-    this.list$ = this.classRoomService.list();
-  } 
+      this.list$ = this.classRoomService.list();
+  }
 
-
-  onShowConfirmDelete(id : number) {
+  onDelete(id : number) {
     let dialogRef = this.dialog.open(ConfirmDeleteDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.removeClassRoom(id);
       }
-    })
+    });
   }
 
-  private removeClassRoom(id: number) {
-    this.classRoomService.delete(id).subscribe(data => {
+  removeClassRoom(id : number) {
+    this.classRoomService.delete(id).subscribe(() => {
       this.list$ = this.classRoomService.list();
-    })
+    });
   }
 }
-
-
