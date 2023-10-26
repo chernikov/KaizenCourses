@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kaizen.Core.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,6 @@ public class TimeSlot
 
     public TimeOnly EndTime { get; set; }
 
-    public int DayOfWeek { get; set; } // 1 - Monday, 5 - Friday
+    public WeekDay DayOfWeek { get; set; } 
 
 }

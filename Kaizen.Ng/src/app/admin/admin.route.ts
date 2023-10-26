@@ -7,6 +7,7 @@ import { ClassRoomFormComponent } from "./class-room/class-room-form/class-room-
 import { GradeFormComponent } from "./grade/grade-form/grade-form.component";
 import { SubjectFormComponent } from "./subject/subject-form/subject-form.component";
 import { SubjectComponent } from "./subject/subject.component";
+import { ScheduleComponent } from "./schedule/schedule.component";
 
 const routes: Routes = [
     { path: 'class-room/add', component: ClassRoomFormComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'subject/add', component: SubjectFormComponent },
   { path: 'subject/edit/:id', component: SubjectFormComponent },
   { path: 'subject', component: SubjectComponent },
+  { path: 'schedule', component: ScheduleComponent },
   { path: '', component: HomeComponent },
   ];
   
