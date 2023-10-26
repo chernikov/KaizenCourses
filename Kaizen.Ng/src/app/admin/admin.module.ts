@@ -16,6 +16,9 @@ import { GradeFormComponent } from './grade/grade-form/grade-form.component';
 
 import { SubjectComponent } from './subject/subject.component';
 import { SubjectFormComponent } from './subject/subject-form/subject-form.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { ScheduleTableComponent } from './schedule/schedule-table/schedule-table.component';
+import { SetScheduleDialogComponent } from './schedule/set-schedule-dialog/set-schedule-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { SubjectFormComponent } from './subject/subject-form/subject-form.compon
     ClassRoomFormComponent,
     GradeFormComponent,
     SubjectFormComponent,
+    ScheduleComponent,
+    ScheduleTableComponent,
+    SetScheduleDialogComponent,
     
   ],
   imports: [

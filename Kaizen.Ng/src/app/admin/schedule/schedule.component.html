@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-header>
+        <mat-form-field>
+            <mat-select [(value)]="selectedGrade">
+                <mat-option *ngFor="let grade of grades" [value]="grade">
+                    {{grade.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card-header>
+    <mat-card-content>
+        <app-schedule-table [grade]="selectedGrade"></app-schedule-table>
+    </mat-card-content>
+</mat-card>

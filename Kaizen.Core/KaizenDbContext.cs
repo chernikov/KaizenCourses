@@ -18,6 +18,8 @@ public class KaizenDbContext : DbContext
 
     public DbSet<TeacherOfSubject> TeacherOfSubjects { get; set; }
 
+    public DbSet<TimeSlot> TimeSlots { get; set; }
+
 
     public DbSet<User> Users { get; set; }
 
@@ -38,53 +40,7 @@ public class KaizenDbContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
-        modelBuilder.Entity<Role>()
-            .HasData(new Role()
-            {
-                Id = 1,
-                Name = "Admin"
-            });
-
-        modelBuilder.Entity<Role>()
-            .HasData(new Role()
-            {
-                Id = 2,
-                Name = "Teacher"
-            });
-
-        modelBuilder.Entity<Role>()
-            .HasData(new Role()
-            {
-                Id = 3,
-                Name = "Schooler"
-            });
-
-        modelBuilder.Entity<Role>()
-            .HasData(new Role()
-            {
-                Id = 4,
-                Name = "Parent"
-            });
-
-
-        modelBuilder.Entity<User>()
-            .HasData(new User()
-            {
-                Id = 1,
-                Email = "admin",
-                Password = "admin",
-                FirstName = "admin",
-                LastName = "admin"
-            });
-
-        modelBuilder.Entity<UserRole>()
-            .HasData(new UserRole()
-            {
-                Id = 1,
-                UserId = 1,
-                RoleId = 1,
-            });
+        DbSeed.Run(modelBuilder);
 
         base.OnModelCreating(modelBuilder);
     }
